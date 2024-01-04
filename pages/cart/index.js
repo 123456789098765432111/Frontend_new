@@ -91,7 +91,6 @@ export default function Cart() {
     </>
   }
 
-  if (session) {
     return <>
 
       <section className="flex justify-between max-md:flex-col space-x-4 ">
@@ -299,21 +298,6 @@ export default function Cart() {
 
       </section>
     </>
-  }
 
-  return <>
-    <div className="grid h-screen px-4 bg-white place-content-center">
-      <div className="text-center">
 
-        <p className="mt-4 text-text text-2xl">You should sign Up to view cart Items</p>
-
-        <button
-          onClick={() => signIn('google')}
-          className="inline-block px-5 py-3 mt-6 text-sm font-medium text-text bg-primary rounded hover:bg-primary focus:outline-none focus:ring"
-        >
-          Login / Register
-        </button>
-      </div>
-    </div>
-  </>
 }
