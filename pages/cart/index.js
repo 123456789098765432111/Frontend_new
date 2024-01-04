@@ -75,7 +75,7 @@ export default function Cart() {
 
   async function stripeCheckout() {
     const response = await axios.post('/api/checkout', {
-      email: session.user.email, name: session.user.name, address, country, zip, city, cartProducts
+      address, country, zip, city, cartProducts
     });
 
     if (response.data.url) {
