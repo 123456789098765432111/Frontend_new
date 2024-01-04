@@ -79,7 +79,6 @@ export default function Header() {
                   className=" text-md font-medium text-text hidden md:flex"
                   href="/"
                 >
-                  Account
                 </Link>
                 <Link
                   className=" text-md font-medium text-text hidden max-md:flex md:hidden"
