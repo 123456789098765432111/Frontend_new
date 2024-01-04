@@ -17,7 +17,6 @@ export default function Cart() {
   const [country, setCountry] = useState('');
   const [zip, setZip] = useState('');
   const [loading, setLoading] = useState(true);
-  const { data: session } = useSession();
   const [isSuccess, setIsSuccess] = useState(false)
 
   useEffect(() => {
@@ -237,14 +236,14 @@ export default function Cart() {
                 <div class="grid grid-cols-12 gap-5">
                   <div class="col-span-6">
                     <label class="mb-1 block text-sm font-medium text-text">Email</label>
-                    <input type="email" name="email" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" value={session.user.email}
+                    <input type="email" name="email" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500"
                       placeholder='Email'
                     />
 
                   </div>
                   <div class="col-span-6">
                     <label class="mb-1 block text-sm font-medium text-text">Full Name</label>
-                    <input type="text" name="name" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" value={session.user.name}
+                    <input type="text" name="name" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500"
                       placeholder='Full name'
                     />
                   </div>
