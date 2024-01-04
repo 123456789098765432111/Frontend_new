@@ -11,11 +11,6 @@ export default function Cart() {
   const { cartProducts, removeProduct, addProduct, clearCart } = useContext(CartContext);
   const [products, setProducts] = useState([]);
   const [address, setAddress] = useState('');
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [city, setCity] = useState('');
-  const [country, setCountry] = useState('');
-  const [zip, setZip] = useState('');
   const [loading, setLoading] = useState(true);
   const [isSuccess, setIsSuccess] = useState(false)
 
@@ -74,7 +69,7 @@ export default function Cart() {
 
   async function stripeCheckout() {
     const response = await axios.post('/api/checkout', {
-      address, country, zip, city, cartProducts
+      address, cartProducts
     });
 
     if (response.data.url) {
@@ -235,9 +230,9 @@ export default function Cart() {
               <div class="space-y-5">
                 <div class="grid grid-cols-12 gap-5">
                   <div class="col-span-6">
-                    <label class="mb-1 block text-sm font-medium text-text">Email</label>
-                    <input type="email" name="email" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500"
-                      placeholder='Email'
+                    <label class="mb-1 block text-sm font-medium text-text">Number</label>
+                    <input type="number" name="email" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500"
+                      placeholder='Number'
                     />
 
                   </div>
@@ -255,30 +250,6 @@ export default function Cart() {
                       required
                     />
 
-                  </div>
-                  <div class="col-span-6">
-                    <label class="mb-1 block text-sm font-medium text-text">City</label>
-                    <input type="text" name="city" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder=""
-                      value={city}
-                      onChange={ev => setCity(ev.target.value)}
-                      required
-                    />
-                  </div>
-                  <div class="col-span-4">
-                    <label class="mb-1 block text-sm font-medium text-text">State</label>
-                    <input type="text" name="state" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder=""
-                      value={country}
-                      onChange={ev => setCountry(ev.target.value)}
-                      required
-                    />
-                  </div>
-                  <div class="col-span-2">
-                    <label class="mb-1 block text-sm font-medium text-text">Zip</label>
-                    <input type="text" name="zip" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder=""
-                      value={zip}
-                      onChange={ev => setZip(ev.target.value)}
-                      required
-                    />
                   </div>
                   <div class="col-span-12 text-center w-full">
                     <button
