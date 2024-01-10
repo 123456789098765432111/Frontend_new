@@ -12,7 +12,7 @@ export default function ProductPage({ product }) {
   const { addProduct } = useContext(CartContext)
   if (product) {
     return (
-      <section className="mt-20 md:mt-6 ">
+      <section className="mt-20 md:mt-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Image section */}
           <div className="lg:aspect-h-2 lg:aspect-w-2 lg:rounded-lg overflow-hidden px-4 md:px-2">
@@ -23,7 +23,7 @@ export default function ProductPage({ product }) {
             />
           </div>
           <div className="grid grid-cols-2 lg:grid lg:grid-cols-1 lg:gap-y-4 px-2 gap-2 md:gap-0 md:px-2">
-            {product.images.slice(1, 3).map((image, index) => (
+            {product.images.slice(0, 3).map((image, index) => (
               <div
                 key={index}
                 className="lg:aspect-h-2 lg:aspect-w-3 lg:overflow-hidden lg:rounded-lg "

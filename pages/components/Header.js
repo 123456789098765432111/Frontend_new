@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../lib/CartContext";
 import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
+import initializeAOS from "@/utils/aosConfig";
+import 'aos/dist/aos.css';
 
 export default function Header() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -15,6 +17,7 @@ export default function Header() {
   useEffect(() => {
     // Update the currentPath state on client side
     setCurrentPath(window.location.pathname);
+    initializeAOS()
   }, []);
 
   const toggleMobileNav = () => {
@@ -25,7 +28,7 @@ export default function Header() {
   const inActive = 'p-2'
 
   return <>
-    <header className="bg-white sticky top-0 z-40 w-full px-2 md:px-4">
+    <header data-aos="fade-right" data-aos-anchor-placement="left" data-aos-duration={1500} className="bg-white sticky top-0 z-40 w-full px-2 md:px-4">
       <div
         className="mx-auto flex h-16 max-w-screen-2xl items-center gap-8 border-b border-primary border-opacity-40"
       >

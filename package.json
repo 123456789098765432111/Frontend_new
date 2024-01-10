@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "axios": "^1.6.0",
     "mongoose": "^7.6.4",
     "next": "14.0.1",

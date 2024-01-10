@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CartContext } from "../../lib/CartContext";
 import toast from "react-hot-toast";
+import initializeAOS from "@/utils/aosConfig";
+import 'aos/dist/aos.css';
 
 // Utility function to format price with a comma for thousands
 const formatPrice = (price) => {
@@ -10,29 +12,31 @@ const formatPrice = (price) => {
 
 export default function Products({ products }) {
   const { addProduct } = useContext(CartContext)
-
+  useEffect(()=>{
+    initializeAOS()
+  },[])
   return (
     <div className="bg-white">
       <div className="mx-auto px-4 py-6">
-        <h2 className="text-2xl font-bold tracking-tight text-text">Our Latest Products</h2>
+        <h2 data-aos='fade-right' data-aos-duration={900} className="text-2xl font-bold tracking-tight text-text">Our Latest Products</h2>
 
-        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:gap-x-8">
+        <div  className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:gap-x-8 ">
           {products?.length > 0 && products.map((product) => (
-            <div key={product.id} className="group relative">
-              <div className="group block overflow-hidden border border-accent rounded-xl border-opacity-10">
-                <div className="p-1">
+            <div  key={product.id} className="group relative">
+              <div data-aos="fade-up" data-aos-anchor-placement="bottom" data-aos-duration={1100} className=" group block overflow-hidden border border-accent rounded-xl border-opacity-10 shadow-md md:shadow-lg lg:shadow-xl group-hover:scale-150">
+                <div  className="p-0">
                   <div className="relative h-[300px] sm:h-[300px]">
                     <img
                       src={product.images[0]}
                       alt=""
-                      className="absolute inset-0 h-full w-full object-contain opacity-100 group-hover:opacity-0"
+                      className="absolute inset-0 h-full w-full object-fill opacity-100"
                     />
 
-                    <img
-                      src={product.images[1]}
+                    {/* <img
+                      src={product.images[0]}
                       alt=""
-                      className="absolute inset-0 h-full w-full object-contain opacity-0 group-hover:opacity-100"
-                    />
+                      className="absolute inset-0 h-full w-full object-contain opacity-0 group-hover:opacity-100 cursor-pointer"
+                    /> */}
                   </div>
 
                   <div className="relative  p-3 border-t">
@@ -65,7 +69,6 @@ export default function Products({ products }) {
                   </div>
                 </div>
               </div>
-
             </div>
           ))}
         </div>

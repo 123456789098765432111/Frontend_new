@@ -3,6 +3,9 @@ import Hero from "./components/Hero";
 import { Product } from "@/models/Product";
 import Products from "./components/Products";
 import Collection from "./components/Collection";
+import initializeAOS from "@/utils/aosConfig";
+import 'aos/dist/aos.css';
+
 
 export default function Home({ featuredProduct, newProducts, collectionProduct1, allProducts }) {
   return (
@@ -12,10 +15,9 @@ export default function Home({ featuredProduct, newProducts, collectionProduct1,
 
       <Hero product={featuredProduct} />
 
-      <hr class="my-1 h-px border-0 bg-gray-300" />
+      <hr data-aos="fade-down" data-aos-duration={1500} data-aos-anchor-placement="center" class="my-1 h-px border-0 bg-gray-300" />
 
       <Products products={newProducts} />
-      <hr class="my-1 h-px border-0 bg-gray-300" />
       <Collection product={collectionProduct1} />
     </main>
   )
