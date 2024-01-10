@@ -10,6 +10,6 @@ export default async function handle(req, res) {
     res.json(products);
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Erroro" });
   }
 }
