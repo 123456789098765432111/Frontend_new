@@ -1,7 +1,7 @@
 import { mongooseConnect } from "@/lib/mongoose";
 import { Order } from "@/models/Order";
 import { Product } from "@/models/Product";
-const stripe = require('stripe')(process.env.STRIPE_KEY);
+// const stripe = require('stripe')(process.env.STRIPE_KEY);
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -44,14 +44,14 @@ export default async function handler(req, res) {
     line_items, address,   paid: false
   })
 
-  const session = await stripe.checkout.sessions.create({
-    line_items,
-    mode: 'payment',
-    customer_email: email,
-    success_url: process.env.SUCCESS_URL + '/cart?success=1',
-    cancel_url: process.env.SUCCESS_URL + '/cart?canceled=1',
-    metadata: { orderId: orderDoc._id.toString(), test: 'ok' }
-  })
+  // const session = await stripe.checkout.sessions.create({
+  //   line_items,
+  //   mode: 'payment',
+  //   customer_email: email,
+  //   success_url: process.env.SUCCESS_URL + '/cart?success=1',
+  //   cancel_url: process.env.SUCCESS_URL + '/cart?canceled=1',
+  //   metadata: { orderId: orderDoc._id.toString(), test: 'ok' }
+  // })
 
   res.json({
     url: session.url,
