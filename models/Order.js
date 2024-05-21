@@ -6,6 +6,8 @@ const OrderSchema = new Schema({
   paid:Boolean,
   phone:String,
   email:String,
+  Void:Boolean,
+  delivered:Boolean,
 }, {
   timestamps: true,
 });

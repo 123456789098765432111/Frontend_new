@@ -29,7 +29,7 @@ export default async function handler(req, res) {
         price_data: {
           currency: 'KES',
           product_data: { name: productInfo.title },
-          unit_amount: productInfo.price * 100, // Ensure the price is correctly multiplied by 100
+          unit_amount: productInfo.price * 100, 
         },
       });
     }
@@ -41,6 +41,8 @@ export default async function handler(req, res) {
     email, 
     phone, 
     paid: false,
+    delivered:false,
+    Void:false
   });
 
   res.status(200).json({
